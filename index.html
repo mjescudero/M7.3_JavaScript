@@ -73,22 +73,22 @@
                   </div>
                   <div class="modal-body">
                       <!-- formulari de login-->
-                      <form  methord="POST" id="formLogin" onsubmit=" return validarLogin()">
-                        <div class="mb-3">
+                      <form  methord="POST" id="formLogin" onsubmit="return validarLogin()" name ="login">
+                        <div class="form-group mb-3">
                           <label for="inputEmail" class="form-label">Email</label>
                           <input type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="nom@domini.es">
                           <div class="invalid-feedback" id="errorEmail"></div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group mb-3">
                           <label for="InputPassword" class="form-label">Password</label>
                           <input type="password" class="form-control" id="inputPassword">
                           <div class="invalid-feedback" id="errorPassword"></div>
                         </div>
-                        <div class="mb-3 form-check">
+                        <div class="form-group mb-3 form-check">
                           <input type="checkbox" class="form-check-input" id="Check">
                           <label class="form-check-label" for="exampleCheck1">Recorda'm</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">login</button>
+                        <button type="submit" class="btn btn-primary"  id="btn_login">login</button>
                       </form>
 
                       <!-- formulari de login-->
@@ -139,7 +139,7 @@
                           <div class="invalid-feedback" id="errorPassword2"></div>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Alta usuari</button>
+                        <button type="submit" class="btn btn-primary" id= "btn_registre">Alta usuari</button>
                       </form>
 
                       <!-- fi formulari de registre-->

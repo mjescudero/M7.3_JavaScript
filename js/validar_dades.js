@@ -40,13 +40,15 @@ function validarDadesReg()
 		acumErrores ++;
 	}
    
-
+	console.log("hola")
     if(inputPassword1.value == "") {
+		console.log("no valor")
 		inputPassword1.classList.add("is-invalid");
 		document.getElementById("errorPassword1").textContent = "Camp obligatori";
         acumErrores ++;
         
     }else {
+		console.log("abans de validar")
         var error=validar_password(inputPassword1);
         if (error!=''){
 		    inputPassword1.classList.add("is-invalid");
@@ -76,6 +78,7 @@ function validarDadesReg()
 
 function validarLogin()
 {
+    console.log("login")
     formLogin.classList.remove('is-invalid');
 
     var acumErrores=0;
@@ -85,18 +88,23 @@ function validarLogin()
     //var inputEmail = document.forms["myForm"]["inputEmail"];
 
     var inputPassword1 = document.getElementById('inputPassword');
+
+    formLogin.classList.remove("is-invalid");
+    formLogin.classList.remove("is-valid");
+    
     
    if(inputEmail.value == "") {
 		inputEmail.classList.add("is-invalid");
 		document.getElementById("errorEmail").textContent = "Camp obligatori";
         acumErrores ++;
     }else if(!validar_email(inputEmail.value)){
+       
 		inputEmail.classList.add("is-invalid");
 		document.getElementById("errorEmail").textContent = "El email no segueix el format";
 		acumErrores ++;
 	}
    
-
+    console.log(inputPassword.value)
     if(inputPassword.value == "") {
 		inputPassword.classList.add("is-invalid");
 		document.getElementById("errorPassword").textContent = "Camp obligatori";
@@ -105,6 +113,7 @@ function validarLogin()
     }else     
     {
         error=validar_password(inputPassword);
+        console.log(error);
         if( error!=''){
             inputPassword.classList.add("is-invalid");
 		    document.getElementById("errorPassword").textContent = error;
@@ -122,14 +131,21 @@ function validarLogin()
 
 formRegistre.addEventListener('blur', (event) => {
 	//console.log(event);
-	if(event.target.value!='') event.target.classList.remove('is-invalid')
+	if(event.target.value!='') {
+		event.target.classList.remove('is-invalid');
+        event.target.classList.remove('is-valid');
+	} 	
+    validarDadesReg();
 }, true);
 
 
 formLogin.addEventListener('blur', (event) => {
-	//console.log(event);
-	if(event.target.value!='') event.target.classList.remove('is-invalid');
-    //registerValidate();
+	console.log(" event: "+ event.target.value);
+	if(event.target.value!=''){
+		event.target.classList.remove('is-invalid');
+        event.target.classList.remove('is-valid');
+	} 	
+    validarLogin();
 }, true);
 
 
